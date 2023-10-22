@@ -27,8 +27,9 @@ public class Main {
             }
         }
 
-        for (int num : arr) {
-            System.out.print(num);
+        System.out.print(arr[0]);
+        for (int k = 1; k < arr.length; k++) {
+            System.out.print("+" + arr[k]);
         }
     }
 
