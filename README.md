@@ -4,7 +4,7 @@
 * [task3:](https://codeforces.com/problemset/problem/405/A)
 * [task4:](https://codeforces.com/problemset/problem/141/A)
 * [task5:](https://codeforces.com/problemset/problem/1399/A)
-* [task5:](https://codeforces.com/problemset/problem/723/A)
+* [task6:](https://codeforces.com/problemset/problem/723/A)
 
 ### Task1
 Использовал сортировку подсчетом т к всего 3 вида монеток

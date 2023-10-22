@@ -14,7 +14,7 @@ public class Main {
         char[] words = twoWords.toCharArray();
 
         if (seq.length != words.length) {
-            System.out.print("No");
+            System.out.print("NO");
             return;
         }
 
@@ -23,12 +23,12 @@ public class Main {
 
         for (int i = 0; i < seq.length; i++) {
             if (words[i] != seq[i]) {
-                System.out.print("No");
+                System.out.print("NO");
                 return;
             }
         }
 
-        System.out.print("Yes");
+        System.out.print("YES");
     }
 
     public static char[] sortCharArray(char[] arr) {
