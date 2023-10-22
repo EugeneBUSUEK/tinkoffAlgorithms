@@ -16,15 +16,18 @@ public class Main {
         int i = 0;
         int j = 0;
         int repeat = subArr[j];
-        while (repeat != 0) {
+        while (i < arr.length) {
+            if (repeat == 0 && j < subArr.length - 1) {
+                j++;
+                repeat = subArr[j];
+                continue;
+            } else if (repeat == 0) {
+                break;
+            }
             arr[i] = j + 1;
             i++;
             repeat--;
 
-            if (repeat == 0 && j < subArr.length - 1) {
-                j++;
-                repeat = subArr[j];
-            }
         }
 
         System.out.print(arr[0]);
