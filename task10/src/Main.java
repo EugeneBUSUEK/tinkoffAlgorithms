@@ -13,8 +13,32 @@ public class Main {
         System.out.println(task(a, params[1]));
     }
 
+    private static long task(Integer[] a, int d) {
+        int i = 0;
+        int j = a.length - 1;
+        long count = 0;
 
-    private static int task(Integer[] a, int d) {
+        while (i < a.length && i != j) {
+            if (j - i == 1) {
+                i++;
+                j = a.length - 1;
+                continue;
+            }
+
+            if (Math.abs(a[i] - a[j]) <= d) {
+                long k = j - i;
+                count = count + (k * (k -1 )) / 2;
+                i++;
+                j = a.length - 1;
+                continue;
+            }
+            j--;
+        }
+        return count;
+    }
+
+
+    private static int task2v(Integer[] a, int d) {
         Map<Integer, Integer> map = new HashMap<>();
         int count = 0;
         int i = 0;
