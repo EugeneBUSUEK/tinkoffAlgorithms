@@ -9,37 +9,59 @@ public class Main {
         for (int i = 0; i < t; i++) {
             line = scanner.nextLine();
             Integer[] a = convertLineToIntArray(line);
-            System.out.println(task(a[0], a[1]));
+            System.out.println(task(a[0], a[1]) ? "YES" : "NO");
         }
     }
 
-    private static String task(int n, int d) {
+    private static boolean task(int n, int d) {
         if (d <= n) {
-            return "YES";
+            return true;
         }
-        double left = 0.0;
-        double right = (double) n;
-        double mid = (right - left) / 2;
-        double funcRes = 0.0;
-        double compareResult = (double) d;
-        while (right - left > 0.5) {
+        int left = 0;
+        int right = n;
+        int mid = (right - left) / 2;
+        int funcRes = 0;
+        int compareResult = d;
+        while (right - left > 1) {
             funcRes = func(mid, d);
             if (funcRes <= n) {
-                return "YES";
+                return true;
             }
             if (funcRes < compareResult) {
                 right = mid;
             } else {
                 left = mid;
             }
-            compareResult = funcRes;
-            mid = (right - left) / 2;
+            if (funcRes < compareResult) {
+                compareResult = funcRes;
+            }
+            mid = left + (right - left) / 2;
         }
-        return "NO";
+        return false;
     }
 
-    private static double func(double x, double d) {
-        return x + (d / (x + 1));
+    private static boolean ternarySearchMin(int n, int d) {
+        if (d <= n) {
+            return true;
+        }
+        int left = 0;
+        int right = n;
+        int a = 0;
+        int b = 0;
+        while (right - left > 2) {
+            a = (left * 2 + right) / 3;
+            b = (left + right * 2) / 3;
+            if (func(a, d) < func(b, d)) {
+                right = b;
+            } else {
+                left = a;
+            }
+        }
+        return func(left, d) <= n || func(right, d) <= n;
+    }
+
+    private static int func(double x, double d) {
+        return (int) (x + Math.ceil(d / (x + 1)));
     }
 
     public static Integer[] convertLineToIntArray(String line) {
