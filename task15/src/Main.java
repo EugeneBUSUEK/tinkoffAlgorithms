@@ -15,25 +15,20 @@ public class Main {
     }
 
     private static int task(int n, int k) {
-        int leftBlock = 0;
-        int rightBlock = n * k;
-        int mid = 0;
-        int counter = 0;
+        int l = 0;
+        int r = Integer.MAX_VALUE;
+        int m = 0;
 
-        while (rightBlock - leftBlock > n) {
-            mid = leftBlock + (((rightBlock / n) - (leftBlock / n)) / 2) * n;
-            counter = mid / n;
-            if ((mid + 1) - counter > k) {
-                rightBlock = mid;
+        while (r > l + 1) {
+            m = l + (r - l) / 2;
+            if (m - (m / n) > k ) {
+                r = m;
             } else {
-                leftBlock = mid;
+                l = m;
             }
         }
-        if (n == k) {
-            return k + 1;
-        }
 
-        return k + counter;
+        return l % n == 0 ? l - 1 : l;
     }
 
     public static Integer[] convertLineToIntArray(String line) {
