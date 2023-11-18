@@ -17,7 +17,7 @@ public class Main {
             if (a[i] < sum) {
                 tempSum = 0;
                 int j = 0;
-                while (j < i) {
+                while (j <= i) {
                     if (a[i] >= tempSum) {
                         tempSum += a[j];
                         j++;
