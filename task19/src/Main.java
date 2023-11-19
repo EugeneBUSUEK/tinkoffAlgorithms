@@ -19,9 +19,7 @@ public class Main {
     private static long findMax(long n, long m) {
         long c = n - (m - 1);
         long res = 0;
-        for (long i = c - 1; i > 0; i--) {
-            res += i;
-        }
+        res = (c * (c - 1)) / 2;
 
         return res;
     }
@@ -33,9 +31,7 @@ public class Main {
         long diff = m - b;
         long resTeamMost = 0;
         long resTeamLess = 0;
-        for (long i = c - 1; i > 0; i--) {
-            resTeamLess += i;
-        }
+        resTeamLess = (c * (c - 1)) / 2;
         resTeamMost = resTeamLess + c;
         res = resTeamLess * diff + resTeamMost * (m - diff);
         return res;
