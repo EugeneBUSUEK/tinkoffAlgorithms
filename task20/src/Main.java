@@ -17,7 +17,7 @@ public class Main {
         double d = 0.0;
         int a = 2;
         int b = 3;
-        while (a < n / 2 && b < (n / a) / 2) {
+        while (a < Math.sqrt(n) && b < Math.sqrt(n / a)) {
             if (n % a != 0) {
                 a++;
                 continue;
